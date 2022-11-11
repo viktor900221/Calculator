@@ -28,9 +28,14 @@ container.addEventListener('click', (e) => {
 
         tastaturString += e.target.value
         display.value = tastaturString
-        console.log(tastaturString)
 
     } else if (e.target.value === '=') {
+        tastaturString = ''
+    }
+
+    /*Delete ON/C Function*/
+    if (e.target.value === 'c') {
+        display.value = 0
         tastaturString = ''
     }
 
