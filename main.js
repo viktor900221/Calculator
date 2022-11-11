@@ -95,7 +95,12 @@ document.querySelector('#gleich').addEventListener('click', function () {
 })
 
 
-
+/*
+Fehler beheben: Keine Buchstaben eingabe if('0-9') kann akzeptiert werden
+Mit Enter das Ergebnis nicht nur auf gleich gedrückt
+() Klammer funktion wenn das in meine String vorkommt führ bitte das erstmal aus
+. float number berechnung
+*/
 
 
 /*
