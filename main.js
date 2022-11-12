@@ -24,7 +24,7 @@ let container = document.getElementById("container");
 //Bedienung über Tastatur:
 container.addEventListener('click', (e) => {
     let isButton = e.target.nodeName === 'BUTTON';
-    if (isButton == true && e.target.value !== '=') {
+    if (isButton == true && e.target.value !== '=' && e.target.value !== 'd') {
 
         tastaturString += e.target.value
         display.value = tastaturString
@@ -37,6 +37,12 @@ container.addEventListener('click', (e) => {
     if (e.target.value === 'c') {
         display.value = 0
         tastaturString = ''
+    }
+
+    /*Delete one number*/
+    if (e.target.value === 'd') {
+        tastaturString = tastaturString.substring(0, tastaturString.length - 1)
+        display.value = tastaturString
     }
 
 })
@@ -105,6 +111,8 @@ Fehler beheben: Keine Buchstaben eingabe if('0-9') kann akzeptiert werden
 Mit Enter das Ergebnis nicht nur auf gleich gedrückt
 () Klammer funktion wenn das in meine String vorkommt führ bitte das erstmal aus
 . float number berechnung
+
+
 */
 
 

@@ -1,39 +1,39 @@
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-body{
-        font-family: 'Nunito', sans-serif;
-        color: #333;
-        background-color: grey;
-        display:flex;
-        min-height: 100vh;
-        justify-content: center;
-        align-items: center;     
+body {
+    font-family: 'Nunito', sans-serif;
+    color: #333;
+    background-color: grey;
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
 
 
-.container{
+.container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center ;
+    justify-content: center;
     background-color: rgb(115, 103, 128);
     /*background-repeat: no-repeat;
     background-position: center;
     background-size: cover;*/
     max-width: 600px;
-    min-height: 700px; 
-    border-radius: 28px;  
+    min-height: 700px;
+    border-radius: 28px;
     box-shadow: 1px 1px 1px 1px black;
     position: relative;
- 
+
 }
 
 .button {
-    
+
     height: 90px;
-    width:124px;
+    width: 124px;
     font-size: 37px;
     font-weight: 900;
     border-radius: 12px;
@@ -42,12 +42,26 @@ body{
 }
 
 
-#gleich{
+#delete {
+    height: 90px;
+    width: 50px;
+    font-size: 23px;
+}
+
+#deleteNumber {
+    height: 90px;
+    width: 50px;
+    font-size: 20px;
+}
+
+
+
+#gleich {
     background-color: rgb(221, 218, 12);
 }
 
-.display{
-   
+.display {
+
     /*position: absolute;*/
     background-color: rgb(110, 133, 125);
     height: 106px;
@@ -59,7 +73,7 @@ body{
     margin: 10px;
 }
 
-.active{
+.active {
     background: red;
 }
 
@@ -69,16 +83,18 @@ body{
 /*Display: Handy M 375px x 984px*/
 /*Display: Handy S 320px*/
 
-@media screen and (max-width:1024px){
-   
+@media screen and (max-width:1024px) {
 
-    .container{
+
+    .container {
         max-width: 515px;
     }
-    .display{
+
+    .display {
         width: 490px;
         font-size: 70px;
     }
+
     .button {
         margin: 5px;
         width: 113px;
@@ -86,24 +102,26 @@ body{
 }
 
 
-@media screen and (max-width:425px){
-    .container{
+@media screen and (max-width:425px) {
+    .container {
         min-width: 350px;
-        min-height: 580px; 
-        border-radius: 28px;  
+        min-height: 580px;
+        border-radius: 28px;
         box-shadow: 1px 1px 1px 1px black;
         position: relative;
     }
-    .display{
-        top:53px;
-        left:121px;
+
+    .display {
+        top: 53px;
+        left: 121px;
         height: 80px;
         width: 334px;
         font-size: 48px;
-        
+
     }
+
     .button {
-    
+
         height: 75px;
         width: 80px;
         font-size: 24px;
@@ -116,10 +134,11 @@ body{
 }
 
 
-@media screen and (max-width:375px){
-    .display{
+@media screen and (max-width:375px) {
+    .display {
         width: 330px;
     }
+
     .button {
         width: 75px;
         font-size: 23px;
@@ -127,24 +146,26 @@ body{
 
 }
 
-@media screen and (max-width:320px){
- 
-    .container{
+@media screen and (max-width:320px) {
+
+    .container {
         min-width: 320px;
-        min-height: 520px; 
-        border-radius: 28px;  
+        min-height: 520px;
+        border-radius: 28px;
         box-shadow: 1px 1px 1px 1px black;
         position: relative;
     }
-    .display{
+
+    .display {
         width: 292px;
         font-size: 42px;
     }
+
     .button {
         height: 65px;
         width: 70px;
         font-size: 20px;
-     
+
     }
 
 
