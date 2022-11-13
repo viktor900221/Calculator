@@ -15,7 +15,6 @@ let result;
 display = document.querySelector('#display')
 
 
-//Wir machen ein active Button 
 let prevButton = null
 let tastaturString = '';
 let gleich = document.getElementById("gleich");
@@ -26,8 +25,19 @@ container.addEventListener('click', (e) => {
     let isButton = e.target.nodeName === 'BUTTON';
     if (isButton == true && e.target.value !== '=' && e.target.value !== 'd') {
 
-        tastaturString += e.target.value
-        display.value = tastaturString
+
+        if (tastaturString.length < 43) {
+            tastaturString += e.target.value
+            display.value = tastaturString
+
+            if (tastaturString.length > 13) {
+                display.style.fontSize = "40px"
+                tastaturString += e.target.value
+                display.value = tastaturString
+            }
+        } else {
+
+        }
 
     } else if (e.target.value === '=') {
         tastaturString = ''
@@ -35,16 +45,20 @@ container.addEventListener('click', (e) => {
 
     /*Delete ON/C Function*/
     if (e.target.value === 'c') {
-        display.value = 0
+        display.value = ''
         tastaturString = ''
+        display.style.fontSize = "70px"
     }
 
     /*Delete one number*/
     if (e.target.value === 'd') {
         tastaturString = tastaturString.substring(0, tastaturString.length - 1)
         display.value = tastaturString
-    }
+        if (tastaturString.length > 13) {
+            display.style.fontSize = "40px"
+        } else { display.style.fontSize = "70px" }
 
+    }
 })
 
 //Die Berechnung => Unsere Hauptfunktion
@@ -89,8 +103,8 @@ document.querySelector('#gleich').addEventListener('click', function () {
         }
 
         console.log(display.value, result)
-
-
+        display.value = result;
+        /*
         if (result.toFixed(2).length <= 9) {
             //1020304034.3443 = 1020304034E4 
             display.value = result.toFixed(2);
@@ -98,7 +112,7 @@ document.querySelector('#gleich').addEventListener('click', function () {
         } else {
             display.value = "Error"
             console.log(result)
-        }
+        }*/
     }
 
     result(intArray, symbolArray);
@@ -111,7 +125,8 @@ Fehler beheben: Keine Buchstaben eingabe if('0-9') kann akzeptiert werden
 Mit Enter das Ergebnis nicht nur auf gleich gedrückt
 () Klammer funktion wenn das in meine String vorkommt führ bitte das erstmal aus
 . float number berechnung
-
+Länger als 10 Zahlen zu verarbeiten in höchstens 2 Zeilen mit Toggle class <br> einfügen
+die letzte gespeicherte Zahl weiter verarbeiten können
 
 */
 

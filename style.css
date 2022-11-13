@@ -66,11 +66,12 @@ body {
     background-color: rgb(110, 133, 125);
     height: 106px;
     width: 526px;
-    font-size: 75px;
+    font-size: 70px;
     font-weight: 900;
     border-radius: 12px;
     text-align-last: right;
     margin: 10px;
+    resize: none;
 }
 
 .active {
