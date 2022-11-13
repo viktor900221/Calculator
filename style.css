@@ -132,6 +132,19 @@ body {
         margin: 5px;
     }
 
+    #delete {
+        height: 75px;
+        width: 32px;
+        font-size: 12px;
+    }
+
+    #deleteNumber {
+        height: 75px;
+        width: 32px;
+        font-size: 16px;
+    }
+
+
 }
 
 
@@ -164,10 +177,21 @@ body {
 
     .button {
         height: 65px;
-        width: 70px;
+        width: 60px;
         font-size: 20px;
 
     }
 
+    #delete {
+        height: 65px;
+        width: 26px;
+        font-size: 9px;
+    }
+
+    #deleteNumber {
+        height: 65px;
+        width: 26px;
+        font-size: 13px;
+    }
 
 }

@@ -1,32 +1,24 @@
+/////////////////////////CALCULATOR FROM VIKTOR LEGRADI-GÖHRING/////////////////////////
+let intArray; //Array für die Integer von tastaturString
+let symbols; //Zwischenspeicher für die Symbole bevor sie in symbolArray gespeichert werden.
+let symbolArray; //Array für die Symbole von tastaturString
+let result; //Variable für den Value von der Berechnung
+let tastaturString = ''; //Variable für den Value von Display
+let displayValue; //Variable für den gesamten Eingabe samt Integer und Symbolen
 
-/*Zwei Bedienungsmöglichkeiten
-1: Über den Display
-2: Über die Tastatur
-*/
-
-let display;
-let displayInput;
-let intArray;
-let symbols;
-let symbolArray;
-let result;
-
-//Bedienung über Display:
-display = document.querySelector('#display')
-
-
-let prevButton = null
-let tastaturString = '';
-let gleich = document.getElementById("gleich");
-let container = document.getElementById("container");
+let display = document.querySelector('#display') //SELECT Display
+let gleich = document.getElementById("gleich"); //SELECT '='
+let container = document.getElementById("container"); //SELECT Container
 
 //Bedienung über Tastatur:
 container.addEventListener('click', (e) => {
+    //Get a Value from the Buttons 
     let isButton = e.target.nodeName === 'BUTTON';
     if (isButton == true && e.target.value !== '=' && e.target.value !== 'd') {
 
-
+        //Save the Value from Button in tastaturString
         if (tastaturString.length < 43) {
+
             tastaturString += e.target.value
             display.value = tastaturString
 
@@ -36,20 +28,18 @@ container.addEventListener('click', (e) => {
                 display.value = tastaturString
             }
         } else {
-
+            //Er soll nichts machen
         }
 
     } else if (e.target.value === '=') {
         tastaturString = ''
     }
-
     /*Delete ON/C Function*/
     if (e.target.value === 'c') {
         display.value = ''
         tastaturString = ''
         display.style.fontSize = "70px"
     }
-
     /*Delete one number*/
     if (e.target.value === 'd') {
         tastaturString = tastaturString.substring(0, tastaturString.length - 1)
@@ -57,26 +47,22 @@ container.addEventListener('click', (e) => {
         if (tastaturString.length > 13) {
             display.style.fontSize = "40px"
         } else { display.style.fontSize = "70px" }
-
     }
 })
 
 //Die Berechnung => Unsere Hauptfunktion
-document.querySelector('#gleich').addEventListener('click', function () {
+gleich.addEventListener('click', function () {
 
-    //Die Eingabe über Display geht automatisch da ich in Input-Feld es eingebe. 
-    displayInput = document.getElementById('display').value; //string
-
+    displayValue = document.getElementById('display').value;//SELECT Value from Display 
 
     //Split multiple symbols!!! ausser Point
-    intArray = displayInput.split(/[+-/*]/)
+    intArray = displayValue.split(/[+-/*]/)
     console.log(intArray)
 
-    //symbolArray = displayInput.split().filter(Number)
-    symbols = displayInput.replace(/\d+/g, ''); //er nimmt nur die Symbols raus und wird in eine String gespeichert "+-."
+    //Symbols trennen von den Integer und in symbolArray speichern
+    symbols = displayValue.replace(/\d+/g, ''); //er nimmt nur die Symbols raus und wird in eine String gespeichert "+-."
     symbolArray = symbols.split('')
     console.log(symbolArray)
-
 
     result = function (arrayInt, arraySym) {
         //result = parseInt(intArray[0]) + parseInt(intArray[1])
@@ -88,7 +74,6 @@ document.querySelector('#gleich').addEventListener('click', function () {
                     console.log(arraySym[j])
                     switch (arraySym[j]) {
                         case '+': result = parseInt(arrayInt[i]) + parseInt(arrayInt[i + 1]);
-                            console.log(result)
                             break;
                         case '-': result = parseInt(arrayInt[i]) - parseInt(arrayInt[i + 1]);
                             break;
@@ -102,80 +87,19 @@ document.querySelector('#gleich').addEventListener('click', function () {
             }
         }
 
-        console.log(display.value, result)
         display.value = result;
-        /*
-        if (result.toFixed(2).length <= 9) {
-            //1020304034.3443 = 1020304034E4 
-            display.value = result.toFixed(2);
 
-        } else {
-            display.value = "Error"
-            console.log(result)
-        }*/
     }
 
     result(intArray, symbolArray);
-
 })
 
 
 /*
-Fehler beheben: Keine Buchstaben eingabe if('0-9') kann akzeptiert werden
-Mit Enter das Ergebnis nicht nur auf gleich gedrückt
-() Klammer funktion wenn das in meine String vorkommt führ bitte das erstmal aus
-. float number berechnung
-Länger als 10 Zahlen zu verarbeiten in höchstens 2 Zeilen mit Toggle class <br> einfügen
-die letzte gespeicherte Zahl weiter verarbeiten können
-
+1. () Klammer funktion wenn das in meine String vorkommt führ bitte das erstmal aus
+2. . float number berechnung
+3. die letzte gespeicherte Zahl weiter verarbeiten können
+4. mehrere operatoren berechnung mehrere Zahlen berechnung
+5. negativ Zahl erkennung
+6. verschiedene Displays textgröße
 */
-
-
-/*
-let str = "str 12.3 or 12,3"
-
-console.log(str.replace(/\d+([,.]\d+)?/g, ''))*/
-
-/*
-//var val = +("value is 10".replace(/\D/g, ""))
-var ret = "data-123"
-
-console.log(ret.replace(/\d+/g, ''));
-*/
-
-
-/*
-whole_string="lasd行書繁1234"
-split_string = whole_string.split(/(\d+)/)
-console.log("Text:" + split_string[0] + " & Number:" + split_string[1])*/
-
-
-
-
-/*
-//Wir machen ein active Button 
-let prevButton = null
-let tastaturString = '';
-let container = document.getElementById("container");
-let gleich = document.getElementById("gleich");
-
-container.addEventListener('click', (e) => {
-    let isButton = e.target.nodeName === 'BUTTON';
-    if (!isButton || gleich == true) {
-        tastaturString = ''
-    } else {
-        //e.target.style.background = 'grey'
-
-        tastaturString += e.target.value
-        display.value = tastaturString
-    }
-    //display.value = e.target.value
-
-    if (prevButton !== null) {
-        //prevButton.style.background = '#EFEFEF';
-    }
-
-    prevButton = e.target
-
-
-})*/
