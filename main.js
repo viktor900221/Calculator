@@ -23,17 +23,15 @@ container.addEventListener('click', (e) => {
             display.value = tastaturString
 
             if (tastaturString.length > 13) {
-                display.style.fontSize = "40px"
-                tastaturString += e.target.value
-                display.value = tastaturString
+                display.style.fontSize = '40px';
+                tastaturString += e.target.value;
+                display.value = tastaturString;
+              }
             }
-        } else {
-            //Er soll nichts machen
-        }
-
-    } else if (e.target.value === '=') {
-        tastaturString = ''
-    }
+          } else if (e.target.value === '=') {
+            tastaturString = '';
+          }
+          
     /*Delete ON/C Function*/
     if (e.target.value === 'c') {
         display.value = ''
@@ -52,54 +50,35 @@ container.addEventListener('click', (e) => {
 
 //Die Berechnung => Unsere Hauptfunktion
 gleich.addEventListener('click', function () {
-
-    displayValue = document.getElementById('display').value;//SELECT Value from Display 
-
-    //Split multiple symbols!!! ausser Point
-    intArray = displayValue.split(/[+-/*]/)
-    console.log(intArray)
-
-    //Symbols trennen von den Integer und in symbolArray speichern
-    symbols = displayValue.replace(/\d+/g, ''); //er nimmt nur die Symbols raus und wird in eine String gespeichert "+-."
-    symbolArray = symbols.split('')
-    console.log(symbolArray)
-
+    displayValue = document.getElementById('display').value;
+  
+   //Split multiple symbols!!! ausser Point
+    intArray = displayValue.split(/[-+*/]/);
+       //Symbols trennen von den Integer und in symbolArray speichern
+    symbols = displayValue.replace(/(\d+\.?\d*)/g, '');
+    symbolArray = symbols.split('');
+  //result = parseInt(intArray[0]) + parseInt(intArray[1])
     result = function (arrayInt, arraySym) {
-        //result = parseInt(intArray[0]) + parseInt(intArray[1])
-
-        for (let i = 0; i < arrayInt.length; i++) {
-            console.log(arrayInt[i])
-            if (arrayInt[i + 1] !== undefined) {
-                for (let j = 0; j < arraySym.length; j++) {
-                    console.log(arraySym[j])
-                    switch (arraySym[j]) {
-                        case '+': result = parseInt(arrayInt[i]) + parseInt(arrayInt[i + 1]);
-                            break;
-                        case '-': result = parseInt(arrayInt[i]) - parseInt(arrayInt[i + 1]);
-                            break;
-                        case '*': result = parseInt(arrayInt[i]) * parseInt(arrayInt[i + 1]);
-                            break;
-                        case '/': result = parseInt(arrayInt[i]) / parseInt(arrayInt[i + 1]);
-                            break;
-
-                    }
-                }
-            }
+      let currentResult = parseFloat(arrayInt[0]);
+  
+      for (let i = 0; i < arraySym.length; i++) {
+        let currentSymbol = arraySym[i];
+        let nextNumber = parseFloat(arrayInt[i + 1]);
+  
+        if (currentSymbol === '+') {
+          currentResult += nextNumber;
+        } else if (currentSymbol === '-') {
+          currentResult -= nextNumber;
+        } else if (currentSymbol === '*') {
+          currentResult *= nextNumber;
+        } else if (currentSymbol === '/') {
+          currentResult /= nextNumber;
         }
-
-        display.value = result;
-
-    }
-
-    result(intArray, symbolArray);
-})
-
-
-/*
-1. () Klammer funktion wenn das in meine String vorkommt führ bitte das erstmal aus
-2. . float number berechnung
-3. die letzte gespeicherte Zahl weiter verarbeiten können
-4. mehrere operatoren berechnung mehrere Zahlen berechnung
-5. negativ Zahl erkennung
-6. verschiedene Displays textgröße
-*/
+      }
+  
+      return { result: currentResult };
+    };
+  
+    let finalResult = result(intArray, symbolArray);
+    display.value = finalResult.result;
+  });
