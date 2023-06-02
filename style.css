@@ -5,7 +5,7 @@
 body {
     font-family: 'Nunito', sans-serif;
     color: #333;
-    background-color: grey;
+    background-color: rgb(31, 54, 103);
     display: flex;
     min-height: 100vh;
     justify-content: center;
@@ -18,7 +18,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: rgb(115, 103, 128);
+    background-color: rgb(83, 60, 107);
     /*background-repeat: no-repeat;
     background-position: center;
     background-size: cover;*/
