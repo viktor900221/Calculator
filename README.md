@@ -36,4 +36,5 @@ Dies ist ein einfacher Taschenrechner, der grundlegende mathematische Operatione
 Viktor Legradi-Göhring
 
 # Screenshot
-![Calc](https://github.com/viktor900221/Calculator/assets/79362660/9abf33ef-ebb4-439c-a967-a141e5839c90)
+
+![Calc](https://github.com/viktor900221/Calculator/assets/79362660/cda10e47-d59c-4041-81b5-9fe496f3d829)
