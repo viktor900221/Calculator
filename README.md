@@ -37,4 +37,5 @@ Viktor Legradi-Göhring
 
 # Screenshot
 
-![Calc](https://github.com/viktor900221/Calculator/assets/79362660/cda10e47-d59c-4041-81b5-9fe496f3d829)
+
+![Calculator1](https://github.com/viktor900221/Calculator/assets/79362660/e9253d83-987f-4df4-bd57-844362a85c8c)
