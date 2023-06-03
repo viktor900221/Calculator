@@ -112,8 +112,7 @@ body {
     .container {
         min-width: 350px;
         min-height: 580px;
-        border-radius: 28px;
-        box-shadow: 1px 1px 1px 1px black;
+       
         position: relative;
     }
 
@@ -131,10 +130,7 @@ body {
         height: 75px;
         width: 80px;
         font-size: 24px;
-        font-weight: 900;
-        border-radius: 12px;
-        box-shadow: 1px 1px 1px 1px black;
-        margin: 5px;
+       
     }
 
     #delete {
@@ -170,8 +166,7 @@ body {
     .container {
         min-width: 320px;
         min-height: 520px;
-        border-radius: 28px;
-        box-shadow: 1px 1px 1px 1px black;
+       
         position: relative;
     }
 
